@@ -14,7 +14,7 @@ Un clin d'oeil discret à des galaxies lointaines, à des intelligences artifici
 
 Créé dans le cadre d’un programme de formation pour apprendre les bases du HTML et se préparer à des projets web plus avancés.
 
-# 🤖 Crédits
+## 🤖 Crédits
 
 Conçu et développé avec passion pour la science-fiction par Nuno Antonio  
 Projet de formation pour AFEC, supervisé par Laurent Touchet

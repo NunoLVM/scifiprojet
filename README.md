@@ -16,7 +16,7 @@ Created as part of a training program to learn HTML fundamentals and prepare for
 
 ## 🤖 Credits
 
-Designed and developed with a love passion for sci-fi by Nuno Antonio 
+Designed and developed with a love passion for sci-fi by Nuno Antonio     
 Training project for AFEC, supervised by Laurent Touchet
 
 ## ⚠️ Disclaimer

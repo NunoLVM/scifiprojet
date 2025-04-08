@@ -6,23 +6,24 @@
     <meta name="description" content="Your ultimate sci-fi movie hub. Explore a galaxy of films and series, track your watchlist, and stay updated with the latest sci-fi news. May the movies be with you!" />
     <meta name="author" content="Nuno Antonio" />
     <title>The Popcorn Awakens | Discover Epic Sci-Fi Movies &amp; Series</title>
-    <link id="main-css" rel="stylesheet" href="dist/css/theme.css" /><title>The Popcorn Awakens | Discover Epic Sci-Fi Movies &amp; Series</title>
+    <link id="main-css" rel="stylesheet" href="styles.css" /><title>The Popcorn Awakens | Discover Epic Sci-Fi Movies &amp; Series</title>
   </head>
 
   <body>
-    <header>
-      <div class="header-main">
+    <header class="main-header">
+      
         <img src="images/logo.svg" alt="Robot holding a popcorn bucket, The Popcorn Awakens logo" class="logo" />
-        <h1>The Popcorn Awakens! | Your Ultimate Sci-Fi Hub</h1>
-        <nav class="navbar">
+       
+        <nav class="nav navbar">
           <ul class="nav-list">
-            <li><a href="login.html"> Login</a></li>
-            <li><a href="signup.html"> Sign Up</a></li>
-            <li><a href="catalog.html"> Catalog</a></li>
-            <li><a href="news.html"> News</a></li>
+            <li><a href="login.html" class="button"> Login</a></li>
+            <li><a href="signup.html" class="button"> Sign Up</a></li>
+            <li><a href="catalog.html" class="button"> Catalog</a></li>
+            <li><a href="news.html" class="button">News</a></li>
           </ul>
         </nav>
-      </div>
+        <h1 class="title">The Popcorn Awakens!</h1>
+      
     </header>
 
 <main>
@@ -37,13 +38,21 @@
 		<input 
 		  type="text" 
 		  name="query" 
-		  placeholder="This is the Way… to Find Your Next Movie!"
-		>
+		  placeholder="This is the Way… to Find Your Next Movie!">
 	  </div>
 	</form>
   </section>
 
 </main>
+<footer>
+  <img src="images/popcorn.png" alt="Popcorn bucket" />
+<ul>  
+  <li><a href="about.html">About Us</a></li>
+  <li><a href="contact.html">Contact</a></li>
+  <li><a href="legal.html">Legal Notice</a></li>
+</ul>
+
+</footer>
 
     <script defer src="dist/js/theme.js"></script>
   </body>

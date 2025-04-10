@@ -1,0 +1,30 @@
+/* Color */
+:root {
+
+  --color-blue: #0F3460; 
+  --color-white: #F0F0F0 ;
+  --color-bleu-noir: #1A1A2E;
+  --color-rouge: #E94560;
+  --color-yellow: #FFC300;
+}
+
+/* Border radius */
+:root {
+  --border-radius-sm: 30px;
+  --border-radius-picture: 10px;
+}
+
+/*Box shadow*/
+:root {
+  --box-shadow-sm: 0px 0px 10px 32px rgb(0 0 0 /15%);
+}
+
+/*Font*/
+:root {
+  --font-family-title: "Audiowide", sans-serif;
+  --font-size-title: 50px;  
+  
+  
+ 
+ 
+}

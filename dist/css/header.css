@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+
+.main-header {
+    background-image: url("/images/header_background.jpg");
+    background-size: cover;
+    padding-bottom: 10px;
+    display: flex;
+    font-weight: bold;
+    text-align: center; 
+    
+}
+
+
+
+    
+
+.title {
+
+color: var(--color-white);
+font-family: var(--font-family-title) ;
+font-size: var(--font-size-title);
+padding: 20px;
+text-align: center;
+
+
+
+}
+
+
+
+.navlist {
+    
+    justify-content: space-between;
+
+}
+
+
+.navbar ul {
+
+    margin: 0;
+    
+}
+
+
+
+.navbar a {
+    
+    padding: 20px;
+    color: #F0F0F0;
+    text-decoration: none;
+    
+    
+    
+}
+
+.navbar a:hover {
+    background-color: #E94560;
+    transition: 1000ms;
+    
+    
+}
+
+

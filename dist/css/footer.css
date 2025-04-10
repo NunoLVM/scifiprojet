@@ -1,0 +1,22 @@
+ .footer-main {
+
+    display: flex;
+
+ } 
+
+ ul {
+
+    display: flex;
+    align-items: center;
+    ;
+
+ }
+
+
+
+.footer-main img {
+    
+   
+  max-width: 100px;
+
+    }

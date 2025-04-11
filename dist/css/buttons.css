@@ -1,8 +1,22 @@
 .button {
-
     text-decoration: none;
-    background-color: #0F3460;
-    border-radius: 100px;
-
-}
-
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    border-radius: var(--border-radius-sm);
+    padding: 10px 20px;
+    display: inline-block;
+    transition: background-color 300ms ease;
+  }
+  
+  .button:hover {
+    background-color: var(--color-red);
+  }
+  
+  .nav-button {
+   
+    background-color: transparent;
+  }
+  
+  a, button {
+    cursor: pointer;
+  }

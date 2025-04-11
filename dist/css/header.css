@@ -1,64 +1,108 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
-
 .main-header {
     background-image: url("/images/header_background.jpg");
     background-size: cover;
-    padding-bottom: 10px;
+    background-position: center;
+    padding: 20px;
+    width: 100%;
+}
+
+
+.header-row{
     display: flex;
-    font-weight: bold;
-    text-align: center; 
-    
-}
-
-
-
-    
-
-.title {
-
-color: var(--color-white);
-font-family: var(--font-family-title) ;
-font-size: var(--font-size-title);
-padding: 20px;
-text-align: center;
-
-
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
 
 }
 
+.logo {
+    width: 150px; 
+    height: auto;
+    flex-shrink: 0;
+    margin-right: 20px;
+    align-self: flex-start;
+}
 
+.header-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
 
-.navlist {
-    
-    justify-content: space-between;
+.navbar {
+
+    width: 100%;
 
 }
 
 
 .navbar ul {
 
-    margin: 0;
-    
+   display: flex;
+   justify-content: space-between;
+   list-style: none;
+   margin: 0;
+   padding: 0 40px;
+   width: 100%;
 }
 
 
 
 .navbar a {
     
-    padding: 20px;
-    color: #F0F0F0;
+    padding: 10px 15px;
+    color: var(--color-white);
     text-decoration: none;
+    transition: background-color 500ms ease;
+    display: block;
+    text-align: center;
+    border-radius: var(--border-radius-sm);
     
-    
-    
+       
 }
 
 .navbar a:hover {
-    background-color: #E94560;
-    transition: 1000ms;
-    
+    background-color: var(--color-red);
     
 }
 
 
+.title {
+
+    margin: 0 0 20px 0;
+    color: var(--color-white);
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-h1);
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+    
+}
+
+@media (max-width: 768px) {
+    .header-row {
+      flex-direction: column;
+    }
+    
+    .logo {
+      margin-right: 0;
+      margin-bottom: 15px;
+    }
+    
+    .navbar ul {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .title {
+      font-size: calc(var(--font-size-h1) * 0.7); /* Reduz o tamanho do título */
+    }
+  }

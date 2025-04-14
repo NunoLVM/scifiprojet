@@ -59,6 +59,8 @@ main {
     flex: 1;
     width: 100%;
     font-size: 1rem;
+    background-color: transparent;
+    font-style: italic;
   }
   
   .search input[type="text"]:focus {

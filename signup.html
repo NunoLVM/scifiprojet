@@ -55,17 +55,21 @@
       <section class="signup">
         <div class="signup-form-container">
             <div class="signup-header">
-              <img src="images/user_icon3.png" alt="Sci‑Fi Icon" class="signup-icon" />
-              <h3>Access Granted: Create Your Account</h3>
+                <div class="icon-container">
+                 <img src="images/user_icon3.png" alt="Sci‑Fi Icon" class="signup-icon" />
+                </div>
+                <div class="text-container">
+                  <h3>Access Granted: Create Your Account</h3>
+                </div>
             </div>
           <form action="process_signup.html" method="post">
             <div class="form-group">
-              <label for="username">Username:</label>
+              <label for="username">Choose your codename</label>
               <input
                 type="text"
                 id="username"
                 name="username"
-                placeholder="Enter your username"
+                placeholder="Enter call sign"
                 required
               />
             </div>
@@ -75,40 +79,45 @@
                 type="email"
                 id="email"
                 name="email"
-                placeholder="Enter your email"
+                placeholder="Transmission address required"
                 required
               />
             </div>
             <div class="form-group">
-              <label for="password">Password:</label>
+              <label for="password">Create launch code</label>
               <input
                 type="password"
                 id="password"
                 name="password"
-                placeholder="Enter your password"
+                placeholder="Enter your access key"
                 required
               />
             </div>
             <div class="form-group">
-              <label for="confirm-password">Confirm Password:</label>
+              <label for="confirm-password">Confirm launch code:</label>
               <input
                 type="password"
                 id="confirm-password"
                 name="confirm-password"
-                placeholder="Confirm your password"
+                placeholder="Confirm your access key"
                 required
               />
             </div>
-            <div class="form-group">
-                <button type="submit" class="button">Sign Up</button>
+            <div class="button-arrow-group">
+                <button type="submit" class="button">Finalize Entry Protocol</button>
+
+                <div class="signup-message">
+                  <p class="terminal-line line-1">New recruit detected.</p>
+                  <p class="terminal-line line-2">Credentials locked and verified.</p>
+                </div>
+
+                <a href="index.html" class="back-home-link">
+                    <img src="images/backhome.png" alt="Back to Home" class="back-arrow" />
+                  </a>
               </div>
           </form>
           
-          <div class="back-home">
-            <a href="index.html" class="back-home-link">
-              <img src="images/arrow_down.svg" alt="Back to Home" class="back-arrow" />
-            </a>
-          </div>
+         
         </div>
       </section>
     </main>

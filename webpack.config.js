@@ -50,8 +50,8 @@ let config = {
       },
     ],
   },
+  
   plugins: [
-
     new MiniCssExtractPlugin({filename: path.join('..', 'css', '[name].css')}),
     new CssoWebpackPlugin({
       forceMediaMerge: true,

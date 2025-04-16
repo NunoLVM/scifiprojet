@@ -1,0 +1,21 @@
+.button {
+  padding: $btn-padding-vertical $btn-padding-horizontal;
+  outline: none;
+  border: 5px solid $btn-border-color;
+  background: $btn-background-color;
+  color: $btn-text-color;
+  font-family: var(--font-secondary);
+  border-radius: $btn-border-radius;
+  box-shadow: $btn-box-shadow;
+  transition: var(--transition-slow), background-color 500ms ease;
+  text-decoration: none;
+  cursor: pointer;
+
+  text-decoration: none;
+  display: block;
+
+  &:hover {
+    background-color: var(--color-red);
+    transform: scale(1.1);
+  }
+}

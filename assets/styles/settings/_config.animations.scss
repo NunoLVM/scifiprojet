@@ -1,0 +1,26 @@
+@keyframes typing {
+  0% {
+    width: 0;
+    visibility: hidden;
+  }
+  1% {
+    visibility: visible;
+  }
+
+  100% {
+    width: 100%;
+    visibility: visible;
+  }
+}
+
+@keyframes blink {
+  0% {
+    border-color: var(--color-red);
+  }
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: transparent;
+  }
+}

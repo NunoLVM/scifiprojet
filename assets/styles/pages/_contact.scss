@@ -4,7 +4,7 @@ main {
     padding: 40px 20px;
   }
   
-
+  
   .intro {
     text-align: center;
     color: var(--color-white);
@@ -25,80 +25,104 @@ main {
     margin: 0 auto;
   }
   
-
-  .signup .signup-form-container {
+  
+  .contact .contact-form-container {
     margin: 0 auto;
     max-width: 1000px;
     background-color: var(--color-white);
     padding: 30px;
     border-radius: var(--border-radius-sm);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-
+    position: relative;
   }
   
-  .signup .signup-header {
+ 
+  .contact .contact-header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 20px;
+    padding: 0;
+  }
   
+  .icon-container {
+    width: 80px;
+    flex-shrink: 0;
   }
-
-  .signup .signup-icon {
-    width: 50px;
-    height: 50px;
-    margin-right: 50px;
-    
-    
+  
+  .contact-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 4px groove var(--color-yellow);
+    object-fit: cover;
+    margin-right: 10px;
+    margin-left: 20px;
   }
-
-  .signup .signup-header h3 {
+  
+  .text-container {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .contact .contact-header h3 {
     font-family: var(--font-secondary);
     font-size: 1.8rem;
     color: var(--color-dark-blue);
-
+    margin: 0;
   }
-
-  .signup form {
+  
+ 
+  .contact form {
     display: flex;
     flex-direction: column;
-     margin-left: 20px;
+    margin-left: 20px;
   }
   
-  
-  .signup .form-group {
+  .contact .form-group {
     margin-bottom: 20px;
   }
   
-  
-  .signup .form-group label {
+  .contact .form-group label {
+    display: block;
+    margin-left: 20px;
     font-family: var(--font-secondary);
     font-size: 1rem;
     margin-bottom: 5px;
     color: var(--color-dark-blue);
   }
   
-  
-  .signup .form-group input {
+  .contact .form-group input,
+  .contact .form-group textarea {
+    width: 100%;
     padding: 10px;
     font-size: 1rem;
     font-family: var(--font-primary);
     border: 1px solid #ccc;
     border-radius: var(--border-radius-sm);
+    box-sizing: border-box;
+  }
+  
+  .contact .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+ 
+  .button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
   }
   
   
-  .signup .form-group input:focus {
-    outline: none;
-    border-color: var(--color-blue);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  a, button {
+    cursor: pointer;
   }
   
   
-
-
   @media (max-width: 768px) {
-    .signup .signup-form-container {
+    .contact .contact-form-container {
       max-width: 90%;
       padding: 15px;
     }

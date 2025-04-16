@@ -1,7 +1,16 @@
 html {
-
 }
 
+// @todo
 body {
-    background: var(--primary-color);
+  font-family: var(--font-primary);
+  line-height: 1.5;
+
+  min-height: 100%;
+  //   line-height: $line-height; // [3]
+  //   font-family: ff("sans");
+  //   color: $font-color; // Todo
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

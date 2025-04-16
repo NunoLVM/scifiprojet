@@ -1,7 +1,27 @@
-@use 'elements/reset';
-@use 'elements/document';
+// Variables
+@import "settings/config.variables";
+@import "settings/config.animations";
+@import "settings/config.breakpoints";
 
-@use 'settings/config.colors';
+// Document
+@import "elements/reset";
+@import "elements/document";
 
-@use 'components/sections';
+// Layout
+@import "layout/header";
+@import "layout/footer";
+@import "layout/container";
+@import "layout/navigation";
 
+// Components
+@import "components/buttons";
+@import "components/login";
+@import "components/searchbar";
+
+// Pages
+@import "pages/contact";
+@import "pages/home";
+@import "pages/signup";
+
+// Shame: Todo
+@import "shame";

@@ -1,19 +1,21 @@
 .intro {
   text-align: center;
-  color: var(--color-white);
-  margin-bottom: 40px;
-}
+  color: $color-white;
+  margin-bottom: $spacing-xl;
 
-.intro h2 {
-  font-family: var(--font-secondary);
-  font-size: 2.2rem;
-  margin-bottom: 20px;
-}
+  h2 {
+    font-family: $font-secondary;
+    font-size: $font-size-h2;
+    margin-bottom: $spacing-md;
 
-.intro p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
-  font-family: var(--font-primary);
+  }
+
+  p {
+    font-size: $font-size-md;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: $font-primary;
+  }
+
 }

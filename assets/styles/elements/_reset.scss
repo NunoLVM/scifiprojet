@@ -1,52 +1,61 @@
 @layer reset {
-    *, *:before, *:after{
-      box-sizing: border-box;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+  }
+
+  body {
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  ul[role='list'],
+  ol[role='list'] {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      scroll-behavior: auto;
     }
-  
-    html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video{
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font-size: 100%;
-      font: inherit;
-      vertical-align: baseline;
-      //text-rendering: optimizeLegibility;
-      //-webkit-font-smoothing: antialiased;
-      //-moz-osx-font-smoothing: grayscale;
-      text-size-adjust: none;
-    }
-  
-    footer, header, nav, section, main{
-      display: block;
-    }
-  
-    body{
-      line-height: 1;
-    }
-  
-    ol, ul{
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-  
-    blockquote, q{
-      quotes: none;
-    }
-  
-    blockquote:before, blockquote:after, q:before, q:after{
-      content: '';
-      content: none;
-    }
-  
-    table{
-      border-collapse: collapse;
-      border-spacing: 0;
-    }
-  
-    input{
-      
-      border-radius: 0;
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
     }
   }
-  
+}

@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact The Popcorn Awakens - Your sci-fi movie hub. Get in touch with us for any questions about movies, series, or website features.">
+  <meta name="author" content="Nuno Antonio">
+  <meta name="keywords" content="contact, sci-fi, movies, support, help">
   <title>Contact Us</title>
   <link id="main-css" rel="stylesheet" href="/dist/css/theme.css" />
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -30,9 +37,7 @@
   <main class="contact">
 
     <div class="intro">
-      <h2>Contact Us</h2>
-      <p>If you have any questions or just want to say hello, feel free to drop us a message and we’ll get back to you
-        as soon as possible.</p>
+      <h2>Contact HQ</h2>
     </div>
 
 
@@ -41,33 +46,34 @@
       <div class="contact-header">
         <div class="icon-container">
 
-          <img src="images/contact_icon.png" alt="Contact Icon" class="contact-icon">
+          <img src="images/contact.webp" alt="Contact Icon" class="contact-icon">
         </div>
         <div class="text-container">
-          <h3>Let's Get In Touch</h3>
+          <h3>Transmission log open.</h3>
+          <p>Need to reach HQ? Drop a message below - response protocol will activate shortly.</p>
         </div>
       </div>
 
 
-      <form action="#" method="post" class="contact_form">
+      <form action="#" method="post" class="contact_form" aria-label="Contact Form">
         <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your Name">
+          <label for="name">Codename</label>
+          <input type="text" id="name" name="name" placeholder="Enter your callsign" required>
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Your Email">
+          <label for="email">Transmisson ID</label>
+          <input type="email" id="email" name="email" placeholder="Enter secure adress" required>
         </div>
         <div class="form-group">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" placeholder="Subject">
+          <label for="subject">Subject line</label>
+          <input type="text" id="subject" name="subject" placeholder="Mission, inquiry or distress call" required>
         </div>
         <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Your Message"></textarea>
+          <label for="message">Message Content</label>
+          <textarea id="message" name="message" placeholder="Type your transmission here..." required></textarea>
         </div>
         <div class="button-group">
-          <button type="submit" class="button">Send Message</button>
+          <button type="submit" class="button">Transmit Message</button>
         </div>
       </form>
     </div>
@@ -76,7 +82,7 @@
   <footer class="footer-main">
     <div class="footer-content">
       <div class="footer-row">
-        <img src="images/popcorn.png" alt="Popcorn bucket" class="footer-logo" />
+        <img src="images/popcorn.webp" alt="Popcorn bucket" class="footer-logo" />
         <div class="footer-right">
           <nav class="footer-nav" aria-label="Footer Navigation">
             <ul>

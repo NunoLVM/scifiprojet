@@ -1,8 +1,18 @@
+// Animation Timings
+$animation-duration-fast: 0.3s;
+$animation-duration-normal: 0.5s;
+$animation-duration-slow: 1s;
+
+// Animation Curves
+$ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+$ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
 @keyframes typing {
   0% {
     width: 0;
     visibility: hidden;
   }
+
   1% {
     visibility: visible;
   }
@@ -15,12 +25,21 @@
 
 @keyframes blink {
   0% {
-    border-color: var(--color-red);
+    border-color: $color-red;
   }
-  50% {
-    border-color: transparent;
-  }
+
+  50%,
   100% {
     border-color: transparent;
+  }
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.1);
   }
 }

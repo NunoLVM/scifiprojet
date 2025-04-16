@@ -1,45 +1,96 @@
 main {
-  min-height: calc(80vh - 20px);
-  background-color: var(--color-dark-blue);
-  padding: 40px 20px;
+  min-height: calc(80vh - $spacing-md);
+  background-color: $color-dark-blue;
+  padding: $spacing-xl $spacing-md
 }
 
 .intro {
   text-align: center;
-  color: var(--color-white);
-  margin-bottom: 40px;
+  color: $color-white;
+  ;
+  margin-bottom: $spacing-xl;
+
+
+  h2 {
+    font-family: $font-secondary;
+    font-size: $font-size-h2;
+    margin-bottom: $spacing-md;
+
+  }
+
+  p {
+    font-family: var(--font-primary);
+    font-size: $font-size-md;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+
+  }
+
 }
 
-.intro h2 {
-  font-family: var(--font-secondary);
-  font-size: 2.2rem;
-  margin-bottom: 20px;
-}
+.contact {
+  &-form-container {
+    margin: 0 auto;
+    max-width: 1000px;
+    background-color: $color-white;
+    padding: $spacing-lg;
+    border-radius: $border-radius-sm;
+    box-shadow: $box-shadow-md;
+    position: relative;
+  }
 
-.intro p {
-  font-family: var(--font-primary);
-  font-size: 1.2rem;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
-}
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: $spacing-md;
+    padding: 0;
 
-.contact .contact-form-container {
-  margin: 0 auto;
-  max-width: 1000px;
-  background-color: var(--color-white);
-  padding: 30px;
-  border-radius: var(--border-radius-sm);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  position: relative;
-}
+    h3 {
+      font-family: $font-secondary;
+      font-size: $font-size-h3;
+      color: $color-dark-blue;
+      margin: 0;
+    }
+  }
 
-.contact .contact-header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 20px;
-  padding: 0;
+  form {
+    display: flex;
+    flex-direction: column;
+    margin-left: $spacing-md;
+  }
+
+  .form-group {
+    margin-bottom: $spacing-md;
+
+    label {
+      display: block;
+      margin-left: $spacing-md;
+      font-family: $font-secondary;
+      font-size: $font-size-sm;
+      margin-bottom: $spacing-xs;
+      color: $color-dark-blue;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: $spacing-sm;
+      font-size: $font-size-sm;
+      font-family: $font-primary;
+      border: 1px solid #ccc;
+      border-radius: $border-radius-sm;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+  }
+
 }
 
 .icon-container {
@@ -51,10 +102,10 @@ main {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 4px groove var(--color-yellow);
+  border: $border-width groove $color-yellow;
   object-fit: cover;
-  margin-right: 10px;
-  margin-left: 20px;
+  margin-right: $spacing-sm;
+  margin-left: $spacing-md;
 }
 
 .text-container {
@@ -62,52 +113,10 @@ main {
   text-align: center;
 }
 
-.contact .contact-header h3 {
-  font-family: var(--font-secondary);
-  font-size: 1.8rem;
-  color: var(--color-dark-blue);
-  margin: 0;
-}
-
-.contact form {
-  display: flex;
-  flex-direction: column;
-  margin-left: 20px;
-}
-
-.contact .form-group {
-  margin-bottom: 20px;
-}
-
-.contact .form-group label {
-  display: block;
-  margin-left: 20px;
-  font-family: var(--font-secondary);
-  font-size: 1rem;
-  margin-bottom: 5px;
-  color: var(--color-dark-blue);
-}
-
-.contact .form-group input,
-.contact .form-group textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  font-family: var(--font-primary);
-  border: 1px solid #ccc;
-  border-radius: var(--border-radius-sm);
-  box-sizing: border-box;
-}
-
-.contact .form-group textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
 .button-group {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: $spacing-md;
 }
 
 a,
@@ -116,16 +125,18 @@ button {
 }
 
 @media (max-width: 768px) {
-  .contact .contact-form-container {
+  .contact-form-container {
     max-width: 90%;
-    padding: 15px;
+    padding: $spacing-sm;
   }
 
-  .intro h2 {
-    font-size: 1.8rem;
-  }
+  .intro {
+    h2 {
+      font-size: $font-size-lg;
+    }
 
-  .intro p {
-    font-size: 1rem;
+    p {
+      font-size: $font-size-sm;
+    }
   }
 }

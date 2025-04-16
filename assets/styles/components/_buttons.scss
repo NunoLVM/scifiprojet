@@ -1,21 +1,30 @@
 .button {
   padding: $btn-padding-vertical $btn-padding-horizontal;
   outline: none;
-  border: 5px solid $btn-border-color;
-  background: $btn-background-color;
+  border: $border-width solid $btn-border-color;
+  background-color: $btn-background-color;
   color: $btn-text-color;
-  font-family: var(--font-secondary);
+  font-family: $font-secondary;
   border-radius: $btn-border-radius;
-  box-shadow: $btn-box-shadow;
-  transition: var(--transition-slow), background-color 500ms ease;
+  box-shadow: $box-shadow-md;
+  transition: all $transition-normal;
   text-decoration: none;
   cursor: pointer;
-
-  text-decoration: none;
-  display: block;
+  display: inline-block;
 
   &:hover {
-    background-color: var(--color-red);
+    background-color: $color-red;
     transform: scale(1.1);
+    box-shadow: $box-shadow-lg;
+  }
+
+  &--primary {
+    @extend .button;
+    background-color: $color-blue;
+  }
+
+  &--secondary {
+    @extend .button;
+    background-color: $color-red;
   }
 }

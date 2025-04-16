@@ -42,34 +42,56 @@
 // }
 
 .search {
-  background: #fff;
+  background-color: $color-white;
   max-width: 800px;
   margin: 0 auto;
-  border-radius: 999px;
-  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: $btn-border-radius;
+  padding: $spacing-md $spacing-lg;
+  box-shadow: $box-shadow-md;
 
   &_form {
     display: flex;
-    gap: var(--spacing-md);
+    gap: $spacing-md;
     justify-content: center;
     align-items: center;
   }
 
   &_icon {
+    flex-shrink: 0;
+
     img {
       width: 60px;
+      height: auto;
+      transition: transform $transition-fast;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 
   &_control {
-    height: 100%;
-    width: 100%;
+    flex: 1;
 
     input[type="text"] {
       width: 100%;
       border: none;
       outline: none;
-      padding: var(--spacing-md);
+      padding: $spacing-md;
+      font-family: $font-primary;
+      font-size: $font-size-md;
+      font-style: italic;
+      background-color: transparent;
+
+      &::placeholder {
+        color: rgba($color-dark-blue, 0.6);
+      }
+
+      &:focus {
+        &::placeholder {
+          color: rgba($color-dark-blue, 0.8);
+        }
+      }
     }
   }
 }

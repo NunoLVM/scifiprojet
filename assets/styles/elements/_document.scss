@@ -1,16 +1,20 @@
 html {
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
-// @todo
 body {
-  font-family: var(--font-primary);
+  font-family: $font-primary;
   line-height: 1.5;
-
-  min-height: 100%;
-  //   line-height: $line-height; // [3]
-  //   font-family: ff("sans");
-  //   color: $font-color; // Todo
-
+  min-height: 100vh;
+  color: $color-dark-blue;
+  background-color: $color-white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: $color-blue;
+  color: $color-white;
 }

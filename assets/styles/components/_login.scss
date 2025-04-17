@@ -119,17 +119,13 @@
   }
 
   &.line-1 {
-    animation:
-      typing 2.5s steps(30, end),
-      blink 0.7s step-end 3;
+    animation: typing 2.5s steps(30, end), blink 0.7s step-end 3;
     animation-fill-mode: forwards;
   }
 
   &.line-2 {
     visibility: hidden;
-    animation:
-      typing 2.5s steps(30, end) 2.6s forwards,
-      blink 0.7s step-end 3 2.6s;
+    animation: typing 2.5s steps(30, end) 2.6s forwards, blink-out 0.7s step-end 3 5.6s;
     animation-fill-mode: forwards;
   }
 }

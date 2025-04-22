@@ -19,3 +19,16 @@
     }
   }
 }
+
+#openMenu,
+#closeMenu {
+  @media (min-width: $from-md) {
+    display: none;
+  }
+  
+  svg {
+    color: #fff;
+    height: 50px;
+    width: 50px;
+  }
+}

@@ -1,69 +1,92 @@
-
-
-.container {
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-}
-
 .legal_notice {
-  padding: var(--spacing-xl) 0;
-  background-color: var(--color-body);
+  padding: $spacing-xl 0;
+  background-color: $color-dark-blue;
+  color: $color-white;
+  font-family: $font-secondary;
+
 
   .section-title {
-    font-size: var(--font-size-title);
-    font-family: var(--font-family-title);
-    font-weight: var(--font-weight-xl);
+    font-size: $font-size-h2;
+    font-family: $font-secondary;
+    text-decoration: underline;
+    font-weight: bold;
     text-align: center;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: $spacing-lg;
   }
 
   .legal-content {
-    max-width: var(--max-modal-width);
+    max-width: 800px;
     margin: 0 auto;
-    padding: var(--spacing-md);
-    background-color: var(--color-white);
-    border-radius: var(--border-radius-sm);
-    box-shadow: var(--box-shadow-sm);
+    padding: $spacing-md;
+    background-color: $color-white;
+    border-radius: $border-radius-sm;
+    box-shadow: $box-shadow-sm;
 
     .legal-item {
-      margin-bottom: var(--spacing-lg);
-      padding-bottom: var(--spacing-md);
-      border-bottom: 1px solid var(--border-color);
+      margin-bottom: $spacing-lg;
+      padding-bottom: $spacing-md;
+      border-bottom: 1px solid $color-blue;
+
+      strong {
+        font-family: $font-secondary; 
+        font-weight: bold; 
+        font-size: $font-size-sm; 
+        color: $color-blue;
+        
+      }
 
       h3 {
-        font-size: var(--font-size-header);
-        font-weight: var(--font-line-weight);
-        color: var(--color-orange);
-        margin-bottom: var(--spacing-sm);
+        font-size: $font-size-h3;
+        font-weight: bold;
+        color: $color-blue;
+        margin-bottom: $spacing-sm;
+        font-family: $font-secondary;
       }
 
       p {
-        font-size: var(--font-size-base);
-        font-family: var(--font-secondary);
+        font-size: $font-size-body;
+        font-family: $font-primary;
         line-height: 1.6;
-        color: var(--color-black);
+        color: $color-dark-blue;
       }
     }
   }
 
   .contact-info {
-    font-weight: var(--font-weight-xl);
-    color: var(--color-blue);
+    font-weight: bold;
+    color: $color-blue; 
+    text-decoration: underline;
+    cursor: pointer;
+
+  &:hover {
+    color: $color-red; 
+    
   }
+
+
+  }
+
+  .button-back-arrow {
+    display: flex;
+    justify-content: center;  
+    align-items: center;  
+    margin-top: $spacing-lg;  
+  }
+  
+
 }
 
-/* Responsividade */
+
 @media (max-width: 768px) {
   .container {
-    padding: 0 var(--spacing-sm);
+    padding: 0 $spacing-sm;
   }
 
   .legal_notice {
-    padding: var(--spacing-lg) 0;
+    padding: $spacing-lg 0;
   }
 
   .legal-content {
-    padding: var(--spacing-sm);
+    padding: $spacing-sm;
   }
 }

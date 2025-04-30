@@ -1,33 +1,13 @@
-let btnOpenMenu = document.getElementById('openMenu');
-let btnCloseMenu = document.getElementById('closeMenu');
-let mainMenu = document.querySelector('.header-right');
-let layer = document.querySelector('.layer');
+import "./components/MainNav.js";
+import { links } from "./Menu.js";
+// import "./components/Blackh.js";
 
-if (btnCloseMenu) {
-    btnCloseMenu.addEventListener('click', function() {
-        closeMenuMobile();
-    })
-}
+let menu = `<ul class="navlist">`;
+let menuContainer = document.getElementById("menu");
 
-if (btnOpenMenu) {
-    btnOpenMenu.addEventListener('click', function() {
-        openMenuMobile();
-    })
-}
+links.forEach(function (link) {
+  menu += `<li><a href="${link.url}" class="button">${link.label}</a></li>`;
+});
+menu += `</ul>`;
 
-function openMenuMobile() {
-    mainMenu.classList.add('visible');
-    layer.classList.add('visible');
-} 
-
-function closeMenuMobile() {
-    
-    mainMenu.classList.add('loading');
-    
-    setTimeout(() => {
-        mainMenu.classList.remove('visible');
-        mainMenu.classList.remove('loading');
-        layer.classList.remove('visible');
-      }, 300);
-      
-} 
+menuContainer.innerHTML = menu;

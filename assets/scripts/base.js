@@ -1,13 +1,7 @@
-import "./components/MainNav.js";
-import { links } from "./Menu.js";
-// import "./components/Blackh.js";
+import { buildMenu } from "./components/Menu.js";
 
-let menu = `<ul class="navlist">`;
-let menuContainer = document.getElementById("menu");
+window.addEventListener("DOMContentLoaded", function () {
+  let initMenu = new buildMenu();
 
-links.forEach(function (link) {
-  menu += `<li><a href="${link.url}" class="button">${link.label}</a></li>`;
+  initMenu.renderMenu();
 });
-menu += `</ul>`;
-
-menuContainer.innerHTML = menu;

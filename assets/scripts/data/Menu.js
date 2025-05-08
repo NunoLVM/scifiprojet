@@ -4,10 +4,10 @@ export let links = [
     url: "index.html",
   },
   //@todo Login in modal box
-  // {
-  //     label: 'Login',
-  //     url: 'login.html'
-  // },
+   {
+       label: 'Login',
+       url: 'login.html'
+   },
   {
     label: "Sign Up",
     url: "signup.html",

@@ -1,7 +1,7 @@
 
 import { footerLinks } from "../data/FooterMenu.js";
 
-export class BuildFooterMenu {
+export class buildFooterMenu {
   constructor() {
 
     // Captura o elemento do footer a partir do id "footerMenu"

@@ -125,6 +125,18 @@ body {
   }
 }
 
+.interstellar-glow {
+  color: #f0f0f0;
+  position: relative;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 5px #0f3460, 0 0 10px #0f3460, 0 0 20px #e94560, 0 0 40px #ffc300;
+}
+.interstellar-glow:hover {
+  text-shadow: 0 0 10px #ffc300, 0 0 20px #e94560, 0 0 40px #0f3460, 0 0 60px #ffc300;
+  color: #ffc300;
+  transition: all 0.3s ease;
+}
+
 .main-header {
   background-image: url(../js/dist/css/040a2d4e4796de109782.png);
   background-size: cover;
@@ -409,8 +421,6 @@ section {
 
 .popup-container {
   display: none;
-  /*display: flex;*
-  /* Uncomment this line to show the popup by default */
   position: fixed;
   top: 0;
   left: 0;

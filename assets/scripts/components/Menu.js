@@ -16,7 +16,9 @@ export class buildMenu {
     let menu = `<ul class="navlist">`;
 
     links.forEach(function (link) {
-      menu += `<li><a href="${link.url}" class="button">${link.label}</a></li>`;
+
+      const idAttribute = link.id ? 'id="' + link.id + '"' : '';
+      menu += `<li><a href="${link.url}" class="button" ${idAttribute}>${link.label}</a></li>`;
     });
 
     menu += `</ul>`;
@@ -57,5 +59,3 @@ export class buildMenu {
     }
   }
 }
-
-

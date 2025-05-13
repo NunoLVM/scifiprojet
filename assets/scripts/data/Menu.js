@@ -3,10 +3,11 @@ export let links = [
     label: "Homepage",
     url: "index.html",
   },
-  //@todo Login in modal box
+ 
    {
        label: 'Login',
-       url: 'login.html'
+       url: '#',
+       id: "loginBtn"
    },
   {
     label: "Sign Up",

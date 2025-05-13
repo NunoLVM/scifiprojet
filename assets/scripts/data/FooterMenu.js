@@ -1,4 +1,4 @@
-export let footerLinks = [
+export const footerLinks = [
     { 
         label: "About Us", 
         url: "about.html" 

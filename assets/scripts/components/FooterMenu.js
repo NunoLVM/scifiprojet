@@ -1,7 +1,7 @@
 
 import { footerLinks } from "../data/FooterMenu.js";
 
-export class buildFooterMenu {
+export class BuildFooterMenu {
   constructor() {
 
     // Captura o elemento do footer a partir do id "footerMenu"
@@ -12,7 +12,7 @@ export class buildFooterMenu {
 
     // Se o footer não existir, não faz nada
     if (!this.footerMenuContainer) return; 
-    
+
     // Cria a lista do menu do footer
     let menu = `<ul class="footer-navlist">`;
 

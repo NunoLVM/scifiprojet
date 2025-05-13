@@ -1,5 +1,5 @@
 import { buildMenu } from "./components/Menu.js";
-import { buildFooterMenu } from "./components/FooterMenu.js";
+import { BuildFooterMenu } from "./components/FooterMenu.js";
 import { LoginModal } from "./components/LoginModal.js";
 
 

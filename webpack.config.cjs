@@ -1,11 +1,14 @@
+// Active les traces de dépréciation dans le terminal
+process.traceDeprecation = true;
+
 const webpack = require("webpack");
 const path = require("path");
+const ESLintPlugin = require("eslint-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CssoWebpackPlugin = require("csso-webpack-plugin").default;
 const LicensePlugin = require("webpack-license-plugin");
 
-// Détection des modes
 const isProduction = process.env.NODE_ENV === "production";
 const isWatch = process.argv.includes("--watch");
 
@@ -25,18 +28,33 @@ module.exports = {
     preferRelative: true,
   },
 
-  stats: isWatch ? "errors-only" : { children: true },
+  stats: {
+    all: false,
+    errors: true,
+    builtAt: true,
+    assets: true,
+    timings: true,
+    colors: true,
+    version: false,
+    warnings: false, // on cache juste les warnings
+    modules: false,
+  },
 
   module: {
     rules: [
       {
         test: /\.js$/,
-        loader: "esbuild-loader",
-        options: {
-          minify: isProduction, // JS minifié uniquement en prod
-          target: "es2015",
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+            cacheDirectory: true,
+            compact: false,
+          },
         },
       },
+
       {
         test: /\.scss$/,
         use: [
@@ -61,18 +79,11 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.(png|woff2?|eot|otf|ttf|svg|jpe?g|gif)(\?[a-z0-9=\.]+)?$/,
-        type: "asset/resource",
-        generator: {
-          filename: "dist/css/[hash][ext]",
-        },
-      },
+
       {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
-          "style-loader",
           {
             loader: "css-loader",
             options: {
@@ -87,6 +98,14 @@ module.exports = {
           },
         ],
       },
+
+      {
+        test: /\.(png|woff2?|eot|otf|ttf|svg|jpe?g|gif)(\?[a-z0-9=\.]+)?$/,
+        type: "asset/resource",
+        generator: {
+          filename: "dist/css/[hash][ext]",
+        },
+      },
     ],
   },
 
@@ -95,7 +114,15 @@ module.exports = {
       filename: path.join("..", "css", "[name].css"),
     }),
 
-    // Minification CSS uniquement en production
+    // ESLintPlugin pour analyse JS
+    new ESLintPlugin({
+      extensions: ["js"],
+      emitWarning: true,
+      failOnError: false,
+      eslintPath: require.resolve("eslint"),
+      context: path.resolve(__dirname, "assets/scripts"), // si tu veux cibler un dossier spécifique
+    }),
+
     ...(isProduction ? [new CssoWebpackPlugin({ forceMediaMerge: true })] : []),
 
     new LicensePlugin({
@@ -125,4 +152,8 @@ module.exports = {
     : {
         minimize: false,
       },
+
+  infrastructureLogging: {
+    level: "error",
+  },
 };

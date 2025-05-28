@@ -16,8 +16,7 @@ export class buildMenu {
     let menu = `<ul class="navlist">`;
 
     links.forEach(function (link) {
-
-      const idAttribute = link.id ? 'id="' + link.id + '"' : '';
+      const idAttribute = link.id ? 'id="' + link.id + '"' : "";
       menu += `<li><a href="${link.url}" class="button" ${idAttribute}>${link.label}</a></li>`;
     });
 

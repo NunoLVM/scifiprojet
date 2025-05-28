@@ -12,7 +12,7 @@ if (ENV == "local") {
     $user = 'blobidesafec';
     $password = 'Afec2025Dax';
     
-    //https://phpmyadmin.hosting.ovh.net/index.php?pma_username=blobidesafec&pma_servername=blobidesafec.mysql.db
+    // https://phpmyadmin.hosting.ovh.net/index.php?pma_username=blobidesafec&pma_servername=blobidesafec.mysql.db
 
 }
 

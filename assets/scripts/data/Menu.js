@@ -14,11 +14,11 @@ export let links = [
     url: "signup.html",
   },
   {
-    label: "Catalog",
-    url: "catalog.html",
+    label: "Movies",
+    url: "movies.html",
   },
   {
-    label: "News",
-    url: "news.html",
+    label: "Games",
+    url: "games.html",
   },
 ];

@@ -886,6 +886,14 @@ main {
   align-items: center;
   margin-top: 24px;
 }
+.legal_notice .tmdb-logo-inline {
+  height: 1em;
+  width: auto;
+  vertical-align: baseline;
+  margin-left: 0.3em;
+  display: inline;
+  line-height: 1;
+}
 
 @media (max-width: 768px) {
   .container {

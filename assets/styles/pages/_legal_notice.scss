@@ -72,6 +72,14 @@
     align-items: center;  
     margin-top: $spacing-lg;  
   }
+  .tmdb-logo-inline {
+    height: 1em;
+    width: auto;
+    vertical-align: baseline;
+    margin-left: 0.3em;
+    display: inline;
+    line-height: 1;
+  }
   
 
 }

@@ -1,72 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore our curated catalog of movies — from timeless sci-fi epics to cult classics and award-winning storytelling." />
+    <meta name="author" content="Nuno Antonio" />
+    <meta name="keywords" content="movies, catalog, sci-fi, adventure, classic, cinema, futuristic, storytelling" />
+    <title>The Popcorn Awakens | Movie Catalog</title>
+    <link id="main-css" rel="stylesheet" href="/dist/css/theme.css" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Explore our curated catalog of movies — from timeless sci-fi epics to cult classics and award-winning storytelling." />
-  <meta name="author" content="Nuno Antonio" />
-  <meta name="keywords" content="movies, catalog, sci-fi, adventure, classic, cinema, futuristic, storytelling">
-  <title>The Popcorn Awakens | Movie Catalog</title>
-  <link id="main-css" rel="stylesheet" href="/dist/css/theme.css" />
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
-</head>
+  <body>
+    <header class="main-header">
+      <div class="header-row">
+        <a href="index.html" title="">
+          <img src="images/logo.svg" alt="Robot holding a popcorn bucket, The Popcorn Awakens logo" class="logo" />
+        </a>
+        <div class="header-right">
+          <div id="closeMenu"><!-- same SVG as before --></div>
+          <nav class="navbar" aria-label="Main Navigation" id="menu"></nav>
 
-<body>
-  <header class="main-header">
-    <div class="header-row">
-      <a href="index.html" title="">
-        <img src="images/logo.svg" alt="Robot holding a popcorn bucket, The Popcorn Awakens logo" class="logo" />
-      </a>
-      <div class="header-right">
-        <div id="closeMenu"> <!-- same SVG as before --> </div>
-        <nav class="navbar" aria-label="Main Navigation" id="menu"></nav>
-
-        <h1 class="title">The Popcorn Awakens!</h1>
-       
+          <h1 class="title">The Popcorn Awakens!</h1>
+        </div>
+        <div id="openMenu"><!-- same SVG as before --></div>
       </div>
-      <div id="openMenu"> <!-- same SVG as before --> </div>
-    </div>
-  </header>
+    </header>
 
-  <main id="main-content">
-    <div class="container">
-      <section class="intro">
-        <h2>Explore Our Cinematic Universe 🎬</h2>
-        <p>Welcome to the Movie Catalog of The Popcorn Awakens! This is where sci-fi dreams unfold — from retro space operas to interstellar epics and thoughtful dystopias. Whether you're into starships, androids, time loops or existential cosmic drama, we've got a universe of stories waiting to be rediscovered.</p>
-
-        <p>This page is part of my web development learning journey. Each movie listed here is a data-driven entry, pulled straight from a backend structure. Just like Cooper navigating wormholes, I’m building experiences with code that stretch across space and structure — minus the gravitational anomalies.</p>
-
-        <p>Have a favorite film I should include? A bug to report? Reach out via the <a href="contact.html" class="interstellar-glow">contact page</a> and let’s keep the reels spinning.</p>
-      </section>
-
-      <!--Future idea: Add grid/list of movies dynamically via JavaScript or templates -->
-
-    </div>
-  </main>
-
-  <footer class="footer-main">
-    <div class="footer-content">
-      <div class="footer-row">
-        <img src="images/popcorn.webp" alt="Popcorn bucket" class="footer-logo" />
-        <div class="footer-right">
-          <nav id="footerMenu" class="footer-nav" aria-label="Footer Navigation">
-          </nav>
-          <p class="footer-copy">
-            © 2025 The Popcorn Awakens! All rights reserved. Movie data © TMDB. Game data © IGDB.
+    <main id="main-content">
+      <div class="container">
+        <section class="intro">
+          <h2>Explore Our Cinematic Universe 🎬</h2>
+          <p>
+            Welcome to the Movie Catalog of The Popcorn Awakens! This is where sci-fi dreams unfold — from retro space
+            operas to interstellar epics and thoughtful dystopias. Whether you're into starships, androids, time loops
+            or existential cosmic drama, we've got a universe of stories waiting to be rediscovered.
           </p>
-          
+
+          <p>
+            This page is part of my web development learning journey. Each movie listed here is a data-driven entry,
+            pulled straight from a backend structure. Just like Cooper navigating wormholes, I’m building experiences
+            with code that stretch across space and structure — minus the gravitational anomalies.
+          </p>
+
+          <p>
+            Have a favorite film I should include? A bug to report? Reach out via the
+            <a href="contact.html" class="interstellar-glow">contact page</a> and let’s keep the reels spinning.
+          </p>
+        </section>
+
+        <!--Future idea: Add grid/list of movies dynamically via JavaScript or templates -->
+      </div>
+    </main>
+
+    <footer class="footer-main">
+      <div class="footer-content">
+        <div class="footer-row">
+          <img src="images/popcorn.webp" alt="Popcorn bucket" class="footer-logo" />
+          <div class="footer-right">
+            <nav id="footerMenu" class="footer-nav" aria-label="Footer Navigation"></nav>
+            <p class="footer-copy">
+              © 2025 The Popcorn Awakens! All rights reserved. Movie data © TMDB. Game data © IGDB.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <div class="layer"></div>
-  <script defer src="dist/js/theme.js"></script>
-</body>
-
+    <div class="layer"></div>
+    <script defer src="dist/js/theme.js"></script>
+  </body>
 </html>

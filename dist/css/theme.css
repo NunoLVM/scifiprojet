@@ -893,6 +893,11 @@ main {
   margin-left: 0.3em;
   display: inline;
   line-height: 1;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.legal_notice .tmdb-logo-inline:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 4px #ffc300);
 }
 
 @media (max-width: 768px) {

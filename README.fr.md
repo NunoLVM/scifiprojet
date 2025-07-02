@@ -17,7 +17,7 @@ Créé dans le cadre d’un programme de formation pour apprendre les bases du H
 ## 🤖 Crédits
 
 Conçu et développé avec passion pour la science-fiction par Nuno Antonio  
-Projet de formation pour AFEC, supervisé par Laurent Touchet
+Projet de formation pour AFEC, supervisé par Laurent Touchet et Natacha Desse
 
 ## ⚠️ Avertissement
 

@@ -33,7 +33,7 @@
   display: none;
   
   @media (max-width: $to-md) {
-    display: block;
+    display: block !important;
     position: absolute;
     top: $spacing-lg;
     right: $spacing-lg;
@@ -44,7 +44,7 @@
   }
   
   @media (min-width: $from-md) {
-    display: none;
+    display: none !important;
   }
   
   svg {

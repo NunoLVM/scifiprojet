@@ -2,10 +2,13 @@ import { buildMenu } from "./components/Menu.js";
 import { buildFooterMenu } from "./components/FooterMenu.js";
 import { LoginModal } from "./components/LoginModal.js";
 
+
+
 let btnOpenMenu = document.getElementById("openMenu");
 let btnCloseMenu = document.getElementById("closeMenu");
 let mainMenu = document.querySelector(".header-right");
 let layer = document.querySelector(".layer");
+
 
 window.addEventListener("DOMContentLoaded", function () {
   if (document.getElementById("menu")) {
@@ -37,6 +40,8 @@ window.addEventListener("DOMContentLoaded", function () {
     let initFooterMenu = new buildFooterMenu();
     initFooterMenu.renderFooterMenu();
   }
+
+
 
   // Cria o modal de login dinamicamente
   new LoginModal();

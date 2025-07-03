@@ -145,6 +145,7 @@ body {
   padding: 24px;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .header-row {
@@ -158,6 +159,7 @@ body {
 @media (max-width: 999px) {
   .header-row {
     flex-direction: row;
+    position: relative;
   }
 }
 .header-right {
@@ -178,24 +180,32 @@ body {
     bottom: 0;
     position: fixed;
     display: flex;
-    padding: 16px;
+    padding: 40px 16px;
     flex-direction: column;
     justify-content: flex-start;
     height: 100vh;
     width: 80%;
     background: #0f3460;
+    transition: transform 0.3s ease;
     z-index: 99;
-    transform: translateX(-100%);
   }
   .header-right.visible {
-    transition: transform linear 0.2s;
     transform: translateX(0%);
   }
   .header-right.visible .title {
     order: 1;
+    margin-top: 40px;
+    margin-bottom: 24px;
   }
   .header-right.visible .navbar {
     order: 2;
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 24px;
+  }
+  .header-right.loading {
+    transition: transform 0.3s ease;
   }
 }
 
@@ -210,6 +220,8 @@ body {
 @media (max-width: 999px) {
   .logo {
     width: 100px;
+    z-index: 50;
+    position: relative;
   }
 }
 
@@ -341,26 +353,58 @@ section {
   padding: 0 40px;
   width: 100%;
 }
-@media (max-width: 768px) {
+@media (max-width: 999px) {
   .navbar ul {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    padding: 0 16px;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .navbar li {
+    width: 100%;
+    text-align: center;
   }
 }
 
+#openMenu,
+#closeMenu {
+  display: none;
+}
+@media (max-width: 999px) {
+  #openMenu,
+  #closeMenu {
+    display: block !important;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 100;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
 @media (min-width: 1000px) {
   #openMenu,
   #closeMenu {
-    display: none;
+    display: none !important;
   }
 }
 #openMenu svg,
 #closeMenu svg {
   color: #fff;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
+}
+
+@media (max-width: 999px) {
+  #closeMenu {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 101;
+  }
 }
 
 .button, .button--secondary, .button--primary {
@@ -911,9 +955,229 @@ main {
     padding: 8px;
   }
 }
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border-radius: var(--border-radius-picture);
+.blackhole-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 0;
+}
+
+.blackhole-scene {
+  height: 100vh;
+  background: radial-gradient(circle, #000 30%, #0c0505 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.blackhole-core {
+  width: 160px;
+  height: 160px;
+  background: #000;
+  border-radius: 50%;
+  box-shadow: 0 0 80px 20px black;
+  z-index: 3;
+  position: relative;
+}
+
+.halo-layer {
+  position: absolute;
+  border-radius: 50%;
+  transform-origin: center;
+  pointer-events: none;
+}
+.halo-layer.inner {
+  width: 260px;
+  height: 260px;
+  background: conic-gradient(from 0deg, rgba(255, 115, 0, 0.7), transparent 180deg, rgba(255, 115, 0, 0.7) 360deg);
+  filter: blur(24px);
+  z-index: 2;
+  animation: rotate 5s linear infinite;
+}
+.halo-layer.middle {
+  width: 320px;
+  height: 320px;
+  background: conic-gradient(from 90deg, rgba(255, 170, 50, 0.3), transparent 120deg, rgba(255, 170, 50, 0.3) 270deg);
+  filter: blur(40px);
+  z-index: 1;
+  animation: rotateReverse 15s linear infinite;
+}
+.halo-layer.outer {
+  width: 400px;
+  height: 400px;
+  background: conic-gradient(from 45deg, transparent, rgba(255, 210, 100, 0.15), transparent);
+  filter: blur(60px);
+  opacity: 0.5;
+  animation: rotate 25s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotateReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+.lost-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  color: #f0f0f0;
+  font-family: "Audiowide", sans-serif;
+  max-width: 90%;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+  animation-delay: 2.2s;
+}
+
+.lost-message h1 {
+  font-size: 6rem;
+  margin-bottom: 12px;
+  color: #ffc300;
+  text-shadow: none;
+}
+
+.lost-message p {
+  font-size: 1.6rem;
+  margin-bottom: 32px;
+  line-height: 1.7;
+  text-shadow: none;
+}
+
+.lost-message .button, .lost-message .button--primary, .lost-message .button--secondary {
+  background-color: #e94560;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  display: inline-block;
+}
+
+.lost-message .button:hover, .lost-message .button--primary:hover, .lost-message .button--secondary:hover {
+  background-color: #ffc300;
+  transform: scale(1.05);
+}
+
+.error-404 header,
+.error-404 footer {
+  animation: vanishToVoid 1.5s ease-in-out forwards;
+  animation-delay: 0.5s;
+  pointer-events: none;
+}
+
+.error-404 .blackhole-scene {
+  animation: expandScene 2s ease-in-out 2s forwards;
+}
+
+.error-404 header {
+  background-color: #000 !important;
+  z-index: 5;
+  opacity: 1;
+  position: relative;
+}
+
+@keyframes vanishToVoid {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.2) rotate(720deg);
+  }
+}
+@keyframes expandScene {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@media (max-width: 768px) {
+  .lost-message {
+    padding: 16px;
+  }
+  .lost-message h1 {
+    font-size: 3.5rem;
+  }
+  .lost-message p {
+    font-size: 1.1rem;
+  }
+}
+/* Temporary fixes and overrides */
+/* Ensure burger menu is visible on mobile */
+@media (max-width: 768px) {
+  #openMenu {
+    display: block !important;
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 100 !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+  }
+  #closeMenu {
+    display: block !important;
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 101 !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+  }
+  #openMenu svg,
+  #closeMenu svg {
+    color: #fff !important;
+    height: 40px !important;
+    width: 40px !important;
+  }
+}
+/* Layer overlay */
+.layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 98;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.layer.visible {
+  opacity: 1;
+  visibility: visible;
 }

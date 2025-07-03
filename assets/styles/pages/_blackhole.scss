@@ -1,0 +1,221 @@
+// _blackhole.scss
+
+$color-core: #000;
+$halo-inner: rgba(255, 115, 0, 0.7);
+$halo-middle: rgba(255, 170, 50, 0.3);
+$halo-outer: rgba(255, 210, 100, 0.15);
+$blur: 40px;
+
+.blackhole-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 0; // abaixo de tudo
+}
+
+
+.blackhole-scene {
+  height: 100vh;
+  background: radial-gradient(circle, #000 30%, #0c0505 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  
+}
+
+.blackhole-core {
+  width: 160px;
+  height: 160px;
+  background: $color-core;
+  border-radius: 50%;
+  box-shadow: 0 0 80px 20px black;
+  z-index: 3;
+  position: relative;
+}
+
+// Halo camadas
+.halo-layer {
+  position: absolute;
+  border-radius: 50%;
+  transform-origin: center;
+  pointer-events: none;
+
+  &.inner {
+    width: 260px;
+    height: 260px;
+    background: conic-gradient(
+      from 0deg,
+      $halo-inner,
+      transparent 180deg,
+      $halo-inner 360deg
+    );
+    filter: blur($blur * 0.6);
+    z-index: 2;
+    animation: rotate 5s linear infinite;
+  }
+
+  &.middle {
+    width: 320px;
+    height: 320px;
+    background: conic-gradient(
+      from 90deg,
+      $halo-middle,
+      transparent 120deg,
+      $halo-middle 270deg
+    );
+    filter: blur($blur);
+    z-index: 1;
+    animation: rotateReverse 15s linear infinite;
+  }
+
+  &.outer {
+    width: 400px;
+    height: 400px;
+    background: conic-gradient(
+      from 45deg,
+      transparent,
+      $halo-outer,
+      transparent
+    );
+    filter: blur($blur * 1.5);
+    opacity: 0.5;
+    animation: rotate 25s linear infinite;
+    z-index: 0;
+  }
+}
+
+// Animações
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes rotateReverse {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+
+
+.lost-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  color: #f0f0f0;
+  font-family: "Audiowide", sans-serif;
+  max-width: 90%;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+  animation-delay: 2.2s; // espera a animação do header/footer terminar
+}
+
+
+
+.lost-message h1 {
+  font-size: 6rem;
+  margin-bottom: 12px;
+  color: #ffc300;
+  text-shadow: none;
+}
+
+.lost-message p {
+  font-size: 1.6rem;
+  margin-bottom: 32px;
+  line-height: 1.7;
+  text-shadow: none;
+}
+
+
+.lost-message .button {
+  background-color: #e94560;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  display: inline-block;
+}
+
+.lost-message .button:hover {
+  background-color: #ffc300;
+  transform: scale(1.05);
+}
+
+.error-404 header,
+.error-404 footer {
+  animation: vanishToVoid 1.5s ease-in-out forwards;
+  animation-delay: 0.5s;
+  pointer-events: none;
+  
+}
+
+
+
+.error-404 .blackhole-scene {
+  animation: expandScene 2s ease-in-out 2s forwards;
+}
+
+.error-404 header {
+  background-color: #000 !important;
+  z-index: 5;
+  opacity: 1; // Garante visibilidade
+  position: relative;
+}
+
+
+
+@keyframes vanishToVoid {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.2) rotate(720deg);
+  }
+}
+
+
+@keyframes expandScene {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  .lost-message {
+    padding: 16px;
+  }
+
+  .lost-message h1 {
+    font-size: 3.5rem;
+  }
+
+  .lost-message p {
+    font-size: 1.1rem;
+  }
+}

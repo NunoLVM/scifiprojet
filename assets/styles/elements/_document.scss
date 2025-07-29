@@ -44,24 +44,19 @@ body {
 }
 
 .interstellar-glow {
-  color: $color-white;
-  
-  position: relative;
- 
-  letter-spacing: 0.05em;
-  text-shadow:
-    0 0 5px $color-blue,
-    0 0 10px $color-blue,
-    0 0 20px $color-red,
-    0 0 40px $color-yellow;
+  color: $color-red;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.3s ease;
 
   &:hover {
-    text-shadow:
-      0 0 10px $color-yellow,
-      0 0 20px $color-red,
-      0 0 40px $color-blue,
-      0 0 60px $color-yellow;
-    color: $color-yellow;
-    transition: all 0.3s ease;
+    color: lighten($color-red, 8%);
+    animation: pinkPulse 0.8s ease-in-out infinite;
   }
+}
+
+.error-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
 }

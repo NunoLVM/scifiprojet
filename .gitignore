@@ -1,6 +1,10 @@
-# ignore all xml
+# Ignore XML files
 *.xml
 
-resources/*
-node_modules
+# Resources and system files
+resources/
 .DS_Store
+
+# Node modules
+node_modules/
+backend/node_modules/

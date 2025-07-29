@@ -43,3 +43,15 @@ $ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     transform: scale(1.1);
   }
 }
+
+@keyframes pinkPulse {
+  0% {
+    text-shadow: 0 0 3px $color-red;
+  }
+  50% {
+    text-shadow: 0 0 8px lighten($color-red, 10%);
+  }
+  100% {
+    text-shadow: 0 0 3px $color-red;
+  }
+}

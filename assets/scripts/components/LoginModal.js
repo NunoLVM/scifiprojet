@@ -1,17 +1,17 @@
 export class LoginModal {
-    constructor() {
-      this.renderModal();
-      this.attachEvents();
-    }
-    
-    renderModal() {
-      const modalContainer = document.createElement("div");
-      modalContainer.id = "login-popup";
-      modalContainer.className = "popup-container";
+  constructor() {
+    this.renderModal();
+    this.attachEvents();
+  }
 
-      // Começa oculto
-      modalContainer.style.display = "none";  
-      modalContainer.innerHTML = `
+  renderModal() {
+    const modalContainer = document.createElement("div");
+    modalContainer.id = "login-popup";
+    modalContainer.className = "popup-container";
+
+    // Começa oculto
+    modalContainer.style.display = "none";
+    modalContainer.innerHTML = `
         <div class="popup-content">
           <span class="close-btn">&times;</span>
           <h2 class="login-title">Login Protocol: Only true sci-fi fans beyond this point.</h2>
@@ -31,28 +31,60 @@ export class LoginModal {
           </form>
         </div>
       `;
-      document.body.appendChild(modalContainer);
-    }
-    
-    attachEvents() {
-      const loginModal = document.getElementById("login-popup");
-      const closeBtn = loginModal.querySelector(".close-btn");
-
-      // Certifica-se de que o botão de login (gerado na navbar) tenha id="loginBtn"
-      const loginBtn = document.getElementById("loginBtn");
-  
-      if (!loginBtn) {
-        console.error("Button with id 'loginBtn' not found.");
-        return;
-      }
-  
-      loginBtn.addEventListener("click", (e) => {
-        e.preventDefault(); // 
-        loginModal.style.display = "flex"; // 
-      });
-  
-      closeBtn.addEventListener("click", () => {
-        loginModal.style.display = "none";
-      });
-    }
+    document.body.appendChild(modalContainer);
   }
+
+  attachEvents() {
+    const loginModal = document.getElementById("login-popup");
+    const closeBtn = loginModal.querySelector(".close-btn");
+    const loginBtn = document.getElementById("loginBtn");
+    const form = loginModal.querySelector("form");
+
+    if (!loginBtn) return console.error("loginBtn not found");
+
+    // 1) Abrir modal
+    loginBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      loginModal.style.display = "flex";
+    });
+
+    // 2) Fechar modal
+    closeBtn.addEventListener("click", () => {
+      loginModal.style.display = "none";
+    });
+
+    // 3) Submeter formulário
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // recolhe valores
+      const username = form["username"].value;
+      const password = form["password"].value;
+
+      try {
+        const res = await fetch("http://localhost:3000/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: username, password }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.message);
+
+        // 4) Guarda no localStorage
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            token: data.token,
+            username: data.user.username,
+          })
+        );
+
+        // Fecha modal + recarrega para atualizar navbar
+        loginModal.style.display = "none";
+        location.reload();
+      } catch (err) {
+        alert(err.message);
+      }
+    });
+  }
+}

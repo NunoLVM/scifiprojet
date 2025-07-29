@@ -1,0 +1,169 @@
+// assets/styles/pages/_easteregg.scss
+
+.easteregg-body {
+  position: relative;
+  z-index: 1;
+  background-image: url("../../images/imagestars2.png") !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  margin: 0;
+  padding: 0;
+  padding-bottom: $spacing-xl; // espaço extra no fundo da página
+}
+
+.game-zone {
+  margin-bottom: $spacing-xl; // afasta o botão da zona de jogo
+}
+
+// Limpeza visual aplicada apenas ao iframe
+.game-frame iframe {
+  display: block;
+  width: 100%;
+  height: 436px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: $border-radius-md;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  background: transparent;
+  outline: none;
+  overflow: hidden;
+  line-height: 0;
+
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+
+
+// Layout da zona de jogo
+.game-zone-flex {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: center;
+  align-items: flex-start;
+  margin: $spacing-xl auto;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
+}
+
+// Colunas laterais
+.game-info-left,
+.game-info-right {
+  flex: 1;
+  min-width: 280px;
+  max-width: 300px;
+  color: $color-white;
+  font-family: $font-primary;
+}
+
+.game-info-left h3,
+.game-info-right h3 {
+  font-family: $font-secondary;
+  font-size: $font-size-h3;
+  color: $color-yellow;
+  margin-bottom: $spacing-md;
+  margin-top: $spacing-xl;
+}
+
+.game-info-left p,
+.game-info-right li {
+  font-family: $font-primary;
+  font-size: $font-size-body;
+  color: $color-white;
+  line-height: 1.6;
+  margin-bottom: $spacing-sm;
+}
+
+// Container do jogo
+.game-frame {
+  flex: 3;
+  min-width: 760px;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: $spacing-md auto $spacing-md auto;
+  padding: 0;
+  background: transparent;
+  overflow: visible; // permite que iframe projete visual sem cortes
+  height: auto;
+}
+
+// Título acima do jogo
+.secret-title {
+  margin-top: $spacing-xl;
+ 
+}
+
+.game-title {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+  
+  
+
+  h2 {
+    font-family: $font-secondary;
+    font-size: $font-size-h2;
+    color: $color-yellow;
+    margin: 0;
+    
+  }
+}
+
+// Botão de retorno
+.return-link {
+  text-align: center;
+  margin-top: $spacing-xl;
+  margin-bottom: $spacing-xl; // afasta do fundo
+
+  a {
+    display: inline-block;
+    padding: $btn-padding-vertical $btn-padding-horizontal;
+    font-size: $font-size-md;
+    background-color: $btn-background-color;
+    color: $btn-text-color;
+    border-radius: $btn-border-radius;
+    border: 2px solid $btn-border-color;
+    box-shadow: $btn-box-shadow;
+    text-decoration: none;
+    font-family: $font-secondary;
+    transition: $transition-fast;
+
+    &:hover {
+      background-color: lighten($btn-background-color, 10%);
+      color: $color-yellow;
+      box-shadow: $box-shadow-lg;
+    }
+  }
+}
+
+
+ul {
+  list-style-type: disc;
+  padding-left: $spacing-md;
+}
+
+@media (max-width: 900px) {
+  .game-zone-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-info-left,
+  .game-info-right,
+  .game-frame {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .game-frame iframe {
+    height: 70vh;
+  }
+}

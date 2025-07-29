@@ -1,24 +1,19 @@
+const stored = localStorage.getItem("user");
+const user = stored ? JSON.parse(stored) : null;
+const isLoggedIn = Boolean(user && user.token);
+
 export let links = [
+  { label: "Homepage", url: "index.html" },
   {
-    label: "Homepage",
-    url: "index.html",
-  },
- 
-   {
-       label: 'Login',
-       url: '#',
-       id: "loginBtn"
-   },
-  {
-    label: "Sign Up",
-    url: "signup.html",
+    label: isLoggedIn ? "Profile" : "Login",
+    url: isLoggedIn ? "profile.html" : "#",
+    id: isLoggedIn ? "profileBtn" : "loginBtn",
   },
   {
-    label: "Movies",
-    url: "movies.html",
+    label: isLoggedIn ? "Logout" : "Sign Up",
+    url: isLoggedIn ? "#" : "signup.html",
+    id: isLoggedIn ? "logoutBtn" : "signupBtn",
   },
-  {
-    label: "Games",
-    url: "games.html",
-  },
+  { label: "Movies", url: "movies.html" },
+  { label: "Games", url: "games.html" },
 ];

@@ -8,7 +8,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CssoWebpackPlugin = require("csso-webpack-plugin").default;
 const LicensePlugin = require("webpack-license-plugin");
-
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const isProduction = process.env.NODE_ENV === "production";
 const isWatch = process.argv.includes("--watch");
 
@@ -110,6 +110,10 @@ module.exports = {
   },
 
   plugins: [
+    new CopyWebpackPlugin({
+      patterns: [{ from: "assets/easteregg", to: "assets/easteregg" }],
+    }),
+
     new MiniCssExtractPlugin({
       filename: path.join("..", "css", "[name].css"),
     }),

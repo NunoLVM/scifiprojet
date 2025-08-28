@@ -1,11 +1,10 @@
-import db from "../config/db.js";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-
+const db = require("../config/db");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const JWT_SECRET = process.env.JWT_SECRET; // stored in .env file
 
-export const login = async (req, res) => {
+const login = (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -65,7 +64,7 @@ export const login = async (req, res) => {
 };
 
 // Controller function to handle user signup
-export const signup = async (req, res) => {
+const signup = (req, res) => {
   try {
     const { username, email, password } = req.body;
 
@@ -75,7 +74,7 @@ export const signup = async (req, res) => {
     }
 
     // Hash the password
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = bcrypt.hash(password, 10);
 
     // Insert user into database
     const query = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
@@ -93,3 +92,4 @@ export const signup = async (req, res) => {
   }
 };
 
+module.exports = { login, signup };

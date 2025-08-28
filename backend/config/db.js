@@ -1,26 +1,15 @@
+// backend/config/db.js (CommonJS)
+const mysql2 = require("mysql2");
 
-import mysql2 from "mysql2";
-
-
-// Create the database connection
-const db = mysql2.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  waitForConnection: true,
+const pool = mysql2.createPool({
+  host: process.env.DB_HOST || "localhost",
+  user: process.env.DB_USER || "root",
+  password: process.env.DB_PASSWORD || "",
+  database: process.env.DB_NAME || "scifipopcorn",
+  waitForConnections: true,
   connectionLimit: 10,
-  queueLimit: 0
+  queueLimit: 0,
 });
 
-
-// Test the connection
-// db.connect((err) => {
-//   if (err) {
-//     console.error("Error connecting to MySQL:", err.message);
-//   } else {
-//     console.log("🛸 Connection to MySQL established successfully!");
-//   }
-// });
-
-export default db;
+// Exporta o pool; controllers chamam pool.execute(sql, params, cb)
+module.exports = pool;

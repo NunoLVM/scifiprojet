@@ -46,11 +46,17 @@ export class LoginModal {
     loginBtn.addEventListener("click", (e) => {
       e.preventDefault();
       loginModal.style.display = "flex";
+      document.body.style.overflow = "hidden";
+
+      const popupContent = loginModal.querySelector(".popup-content");
+      popupContent.style.animation = "fadeInUp 0.5s ease-out forwards";
+
     });
 
     // 2) Fechar modal
     closeBtn.addEventListener("click", () => {
       loginModal.style.display = "none";
+      document.body.style.overflow = "";
     });
 
     // 3) Submeter formulário

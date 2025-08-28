@@ -51,14 +51,35 @@
   &-content {
     background: $color-white;
     padding: $spacing-xl;
-    width: var(--form-width);
+    width: 90%;
     max-width: 500px;
-    margin: 20px;
+    margin: auto;
     border-radius: $border-radius-sm;
     border: $border-width groove $color-yellow;
     box-shadow: $box-shadow-lg;
     position: relative;
     font-family: $font-secondary;
+    max-height: 90vh;
+    overflow-y: auto;
+    opacity: 0;
+    transform: translateY(30px);
+
+
+    
+
+       // Para telemóveis pequenos
+    @media #{mq-max("xs")} {
+      padding: $spacing-md;
+      max-width: 95%;
+      font-size: $font-size-sm;
+      border-radius: $border-radius-xs;
+    }
+
+    // Para tablets
+    @media #{mq-between("sm", "md")} {
+      padding: $spacing-lg;
+      max-width: 480px;
+    }
 
     form {
       display: flex;

@@ -42,7 +42,7 @@ npm run dev   # start with nodemon (development)
 npm start     # start normally
 ```
 
-```js
+```md
 The API will be available at: http://localhost:3000
 
 ```

@@ -19,9 +19,27 @@ Created as part of a training program to learn HTML fundamentals and prepare for
 This repo is divided into two universes:
 
 **Frontend (root folder)** → the visible galaxy:
-- HTML pages (index.html, signup.html, etc.)
+- HTML pages (`index.html`, `signup.html`, etc.)
 - `assets/scripts` → JavaScript experiments 
 - `assets/styles/` → SCSS styling 
+
+**Backend** (`/backend`) → the hidden engine room:
+- `app.js` → Express app definition
+- `server.js` → launches the hyperdrive (the server)
+- `routes/`, `controllers/`, `config/` → API logic (signup, login, DB access)
+- `.env` → secret codes (DB credentials, JWT secret)
+
+Both have their own `package.json` and `.gitignore.`
+👉 Always `cd` into the right folder before running `npm install` or `npm run dev`.
+
+## 🚀 Backend Quickstart
+
+```bash
+npm install
+npm run dev   # start with nodemon (development)
+npm start     # start normally
+```
+
 
 ## 🤖 Credits
 

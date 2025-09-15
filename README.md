@@ -14,6 +14,15 @@ Expect subtle echoes of distant galaxies, sentient computers, and the occasional
 
 Created as part of a training program to learn HTML fundamentals and prepare for more advanced web development projects.
 
+## ⚡ Project Structure
+
+This repo is divided into two universes:
+
+**Frontend (root folder)** → the visible galaxy:
+- HTML pages (index.html, signup.html, etc.)
+- `assets/scripts` → JavaScript experiments 
+- `assets/styles/` → SCSS styling 
+
 ## 🤖 Credits
 
 Designed and developed with a love passion for sci-fi by Nuno Antonio     

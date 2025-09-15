@@ -36,9 +36,15 @@ Both have their own `package.json` and `.gitignore.`
 ## 🚀 Backend Quickstart
 
 ```bash
+cd backend
 npm install
 npm run dev   # start with nodemon (development)
 npm start     # start normally
+```
+
+```js
+The API will be available at: http://localhost:3000
+
 ```
 
 

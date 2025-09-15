@@ -30,6 +30,7 @@ This repo is divided into two universes:
 - `.env` → secret codes (DB credentials, JWT secret)
 
 Both have their own `package.json` and `.gitignore.`
+
 👉 Always `cd` into the right folder before running `npm install` or `npm run dev`.
 
 ## 🚀 Backend Quickstart

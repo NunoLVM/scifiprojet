@@ -1,0 +1,29 @@
+/* container da grelha */
+#movies-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: $spacing-lg;
+  list-style: none;
+  padding: 0;
+  margin: $spacing-xl 0;
+}
+
+/* estado vazio/erro (se usares essas classes no JS) */
+#movies-list .empty,
+#movies-list .error {
+  color: $color-white;
+  text-align: center;
+  grid-column: 1 / -1;
+  opacity: .85;
+}
+
+/* opcional: espaço lateral no container da página */
+.container {
+  padding-left: $spacing-lg;
+  padding-right: $spacing-lg;
+}
+
+/* se quiseres garantir contraste geral desta página */
+body { 
+  background-color: $color-dark-blue; // já tens tema escuro: reforça aqui se necessário
+}

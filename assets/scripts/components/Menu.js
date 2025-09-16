@@ -1,5 +1,6 @@
 import { links } from "../data/Menu.js";
 
+
 export class buildMenu {
   constructor() {
     this.menuContainer = document.getElementById("menu");

@@ -50,7 +50,7 @@
               <h3>Access Granted: Create Your Account</h3>
             </div>
           </div>
-          <form action="process_signup.html" method="post" aria-label="Sign Up Form">
+          <form id="signup-form" aria-label="Sign Up Form">
             <div class="form-group">
               <label for="username">Choose your codename</label>
               <input type="text" id="username" name="username" placeholder="Enter call sign" required />
@@ -111,6 +111,42 @@
       </div>
     </footer>
 
-    <script defer src="dist/js/theme.js"></script>
+    <script>
+  document.getElementById("signup-form").addEventListener("submit", async function (e) {
+    e.preventDefault(); // Impede o envio tradicional
+
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    // Validação simples
+    if (!username || !email || !password) {
+      alert("Todos os campos são obrigatórios.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ username, email, password })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Conta criada com sucesso!");
+        window.location.href = "login.html"; // ou redireciona para onde quiseres
+      } else {
+        alert(data.message || "Erro ao criar conta.");
+      }
+    } catch (error) {
+      console.error("Erro na requisição:", error);
+      alert("Erro de rede ou servidor.");
+    }
+  });
+</script>
   </body>
 </html>

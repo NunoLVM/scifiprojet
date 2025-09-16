@@ -1,6 +1,9 @@
 const stored = localStorage.getItem("user");
 const user = stored ? JSON.parse(stored) : null;
 const isLoggedIn = Boolean(user && user.token);
+import "../components/Movies.js";
+
+
 
 export let links = [
   { label: "Homepage", url: "index.html" },

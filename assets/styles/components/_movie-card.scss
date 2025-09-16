@@ -1,0 +1,35 @@
+.movie-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: $border-radius-sm;
+  padding: $spacing-md;
+  text-align: center;
+  transition: transform $transition-fast, box-shadow $transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $box-shadow-md;
+  }
+
+  img {
+    width: 100%;
+    display: block;
+    border-radius: $border-radius-picture;
+    margin-bottom: $spacing-sm;
+  }
+
+  h4 {
+    color: $color-white;              // contraste no fundo escuro
+    font-size: $font-size-md;
+    margin: $spacing-xs 0;
+    line-height: 1.2;
+    text-shadow: 0 1px 2px rgba(0,0,0,.35); // melhora legibilidade
+  }
+
+  p {
+    color: lighten($color-white, 10%); // um pouco mais claro
+    font-size: $font-size-sm;
+    margin: 0;
+    opacity: .9;
+  }
+}

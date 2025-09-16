@@ -10,6 +10,7 @@ let mainMenu = document.querySelector(".header-right");
 let layer = document.querySelector(".layer");
 
 
+
 window.addEventListener("DOMContentLoaded", function () {
   if (document.getElementById("menu")) {
     let initMenu = new buildMenu();
@@ -65,3 +66,57 @@ window.addEventListener("DOMContentLoaded", function () {
   // Cria o modal de login dinamicamente
   new LoginModal();
 });
+
+// ====== Config da API (funciona se abrires pelo Live Server ou ficheiro) ======
+
+
+// ====== helpers UI ======
+
+
+// ====== lógica da página MOVIES ======
+const API_BASE = `http://localhost:${location.port || 3000}`;
+
+async function loadPopularMovies() {
+  const r = await fetch(`${API_BASE}/api/movies/popular`);
+  return r.json();
+}
+
+function renderMovies(list, movies) {
+  // Garante que temos um array válido
+  if (!Array.isArray(movies)) movies = [];
+
+  // Se estiver vazio, mostra mensagem
+  if (movies.length === 0) {
+    list.innerHTML = `<li class="empty">No results.</li>`;
+    return;
+  }
+
+  // Renderiza os filmes
+  list.innerHTML = movies
+    .map((m) => {
+      const poster = m.poster_path ? `https://image.tmdb.org/t/p/w185${m.poster_path}` : "";
+      const title = m.title || "Untitled";
+      const year = m.release_date ? m.release_date.slice(0, 4) : "Unknown";
+
+      return `
+        <li class="movie-card">
+          <img src="${poster}" alt="${title}" />
+          <h4>${title}</h4>
+          <p>${year}</p>
+        </li>
+      `;
+    })
+    .join("");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (location.pathname.endsWith("movies.html")) {
+    const list = document.querySelector("#movies-list");
+    loadPopularMovies()
+      .then((ms) => renderMovies(list, ms))
+      .catch(() => {
+        list.innerHTML = `<li>Failed to load movies.</li>`;
+      });
+  }
+});
+

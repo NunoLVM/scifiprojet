@@ -1,5 +1,7 @@
 // assets/scripts/components/Movies.js
-const API_BASE = "http://localhost:3000";
+import { resolveApiBase } from "../utils/api.js";
+
+const API_BASE = resolveApiBase();
 
 let currentPage = 1;
 let totalPages = 1;

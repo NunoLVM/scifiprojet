@@ -1,7 +1,8 @@
 import { buildMenu } from "./components/Menu.js";
 import { buildFooterMenu } from "./components/FooterMenu.js";
 import { LoginModal } from "./components/LoginModal.js";
-
+import { resolveApiBase } from "./utils/api.js";
+export { resolveApiOrigin } from "./utils/api.js";
 
 
 let btnOpenMenu = document.getElementById("openMenu");
@@ -80,27 +81,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
 // ====== lógica da página MOVIES ======
-const resolveApiOrigin = () => {
-  if (typeof window !== "undefined") {
-    const configuredOrigin =
-      window.__API_ORIGIN ||
-      window.API_ORIGIN ||
-      window.API_BASE_URL ||
-      document?.querySelector?.('meta[name="api-origin"]')?.content;
-
-    if (configuredOrigin) {
-      return configuredOrigin;
-    }
-  }
-
-  if (typeof import.meta !== "undefined" && import.meta?.env?.VITE_API_ORIGIN) {
-    return import.meta.env.VITE_API_ORIGIN;
-  }
-
-  return "http://localhost:3000";
-};
-
-const API_BASE = resolveApiOrigin().replace(/\/$/, "");
+const API_BASE = resolveApiBase();
 
 
 async function loadPopularMovies() {

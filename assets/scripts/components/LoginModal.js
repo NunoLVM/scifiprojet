@@ -1,3 +1,7 @@
+import { resolveApiBase } from "../utils/api.js";
+
+const API_BASE = resolveApiBase();
+
 export class LoginModal {
   constructor() {
     this.renderModal();
@@ -64,11 +68,11 @@ export class LoginModal {
       const password = this.form["password"].value;
 
       try {
-        const res = await fetch("http://localhost:3000/api/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email: username, password }),
-        });
+         const res = await fetch(`${API_BASE}/api/login`, {
+           method: "POST",
+           headers: { "Content-Type": "application/json" },
+           body: JSON.stringify({ email: username, password }),
+         });
 
         const contentType = res.headers.get("content-type");
         if (!contentType || !contentType.includes("application/json")) {

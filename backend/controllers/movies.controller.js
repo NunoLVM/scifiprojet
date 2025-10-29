@@ -18,8 +18,9 @@ function withKey(params = {}) {
 export async function getPopular(req, res) {
   try {
     if (!apiKey) return res.status(500).json({ error: "TMDB_API_KEY missing" });
+    const page = Math.max(1, Number.parseInt(req.query.page ?? "", 10) || 1);
     const { data } = await TMDB.get("/movie/popular", {
-      params: withKey({ language: "en-US", page: 1 }),
+      params: withKey({ language: "en-US", page }),
     });
     res.json(data.results);
   } catch (err) {

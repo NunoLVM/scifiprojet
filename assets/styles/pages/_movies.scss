@@ -6,11 +6,11 @@
   padding-left: clamp($spacing-md, 4vw, $spacing-xl);
   padding-right: clamp($spacing-md, 4vw, $spacing-xl);
 }
-.intro {
+.page-movies .intro {
   color: $color-white;
   margin: 0 auto $spacing-xl;
-  max-width: min(1200px, 100%);
-  text-align: left;
+  max-width: min(1400px, 100%);
+  text-align: center;
   display: grid;
   gap: $spacing-lg;
 
@@ -56,7 +56,7 @@ li {
 }
 
 @media (min-width: 992px) {
-  .intro {
+  .page-movies .intro {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -82,7 +82,7 @@ li {
     padding-right: $spacing-md;
   }
 
-  .intro {
+  .page-movies .intro {
     gap: $spacing-md;
   }
 

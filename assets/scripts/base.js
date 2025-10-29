@@ -4,13 +4,10 @@ import { LoginModal } from "./components/LoginModal.js";
 import { resolveApiBase } from "./utils/api.js";
 export { resolveApiOrigin } from "./utils/api.js";
 
-
 let btnOpenMenu = document.getElementById("openMenu");
 let btnCloseMenu = document.getElementById("closeMenu");
 let mainMenu = document.querySelector(".header-right");
 let layer = document.querySelector(".layer");
-
-
 
 window.addEventListener("DOMContentLoaded", function () {
   if (document.getElementById("menu")) {
@@ -61,32 +58,48 @@ window.addEventListener("DOMContentLoaded", function () {
         });
       }
     }
-
   });
 
   // Cria o modal de login dinamicamente
-    const loginModal = new LoginModal();
+  const loginModal = new LoginModal();
 
-    const shouldShowLogin = sessionStorage.getItem("showLoginAfterSignup");
-    if (shouldShowLogin === "true") {
-      sessionStorage.removeItem("showLoginAfterSignup");
-      loginModal.openModal();
-    }
+  const shouldShowLogin = sessionStorage.getItem("showLoginAfterSignup");
+  if (shouldShowLogin === "true") {
+    sessionStorage.removeItem("showLoginAfterSignup");
+    loginModal.openModal();
+  }
 });
 
 // ====== Config da API (funciona se abrires pelo Live Server ou ficheiro) ======
 
-
 // ====== helpers UI ======
-
 
 // ====== lógica da página MOVIES ======
 const API_BASE = resolveApiBase();
 
+async function loadPopularMovies({ pages = 2, take = 22 } = {}) {
+  const pageNumbers = Array.from({ length: pages }, (_, index) => index + 1);
 
-async function loadPopularMovies() {
-  const r = await fetch(`${API_BASE}/api/movies/popular`);
-  return r.json();
+  const pageResults = await Promise.all(
+    pageNumbers.map(async (page) => {
+      const response = await fetch(`${API_BASE}/api/movies/popular?page=${page}`);
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch popular movies page ${page}`);
+      }
+
+      const data = await response.json();
+      return Array.isArray(data) ? data : [];
+    })
+  );
+
+  const merged = pageResults.flat();
+
+  if (typeof take === "number" && take >= 0) {
+    return merged.slice(0, take);
+  }
+
+  return merged;
 }
 
 function renderMovies(list, movies) {
@@ -120,11 +133,12 @@ function renderMovies(list, movies) {
 document.addEventListener("DOMContentLoaded", () => {
   if (location.pathname.endsWith("movies.html")) {
     const list = document.querySelector("#movies-list");
+    list.innerHTML = `<li class="loading">Loading...</li>`;
+
     loadPopularMovies()
       .then((ms) => renderMovies(list, ms))
       .catch(() => {
-        list.innerHTML = `<li>Failed to load movies.</li>`;
+        list.innerHTML = `<li class="error">Failed to load movies.</li>`;
       });
   }
 });
-

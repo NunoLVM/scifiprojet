@@ -138,7 +138,8 @@
 
       if (response.ok) {
         alert("Conta criada com sucesso!");
-        window.location.href = "login.html"; // ou redireciona para onde quiseres
+        sessionStorage.setItem("showLoginAfterSignup", "true");
+        window.location.href = "index.html";
       } else {
         alert(data.message || "Erro ao criar conta.");
       }

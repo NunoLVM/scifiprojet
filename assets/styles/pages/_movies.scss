@@ -1,29 +1,101 @@
-/* container da grelha */
-#movies-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: $spacing-lg;
-  list-style: none;
-  padding: 0;
-  margin: $spacing-xl 0;
+.page-movies {
+  background-color: $color-dark-blue;
 }
 
-/* estado vazio/erro (se usares essas classes no JS) */
-#movies-list .empty,
-#movies-list .error {
-  color: $color-white;
-  text-align: center;
-  grid-column: 1 / -1;
-  opacity: .85;
-}
-
-/* opcional: espaço lateral no container da página */
 .container {
-  padding-left: $spacing-lg;
-  padding-right: $spacing-lg;
-}
+    padding-left: clamp($spacing-md, 4vw, $spacing-xl);
+    padding-right: clamp($spacing-md, 4vw, $spacing-xl);
+  }
+.intro {
+    color: $color-white;
+    margin: 0 auto $spacing-xl;
+    max-width: min(1200px, 100%);
+    text-align: left;
+    display: grid;
+    gap: $spacing-lg;
 
-/* se quiseres garantir contraste geral desta página */
-body { 
-  background-color: $color-dark-blue; // já tens tema escuro: reforça aqui se necessário
-}
+    h2 {
+      font-size: $font-size-h2;
+      margin: 0;
+      grid-column: 1 / -1;
+    }
+
+    p {
+      font-size: $font-size-md;
+      line-height: 1.65;
+      margin: 0;
+    }
+  }
+
+  #movies-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp($spacing-lg, 3vw, $spacing-xl);
+    list-style: none;
+    margin: $spacing-xl auto;
+    max-width: min(1200px, 100%);
+    padding: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  #movies-list li {
+    display: flex;
+  }
+
+  #movies-list .empty,
+  #movies-list .error {
+    color: $color-white;
+    grid-column: 1 / -1;
+    opacity: .85;
+    text-align: center;
+  }
+
+  @media (min-width: 992px) {
+    .intro {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 1024px) {
+    #movies-list {
+      max-width: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding-left: $spacing-md;
+      padding-right: $spacing-md;
+    }
+
+    .intro {
+      gap: $spacing-md;
+    }
+
+        #movies-list {
+      margin: $spacing-lg auto;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+  }
+
+
+// .pager {
+//   display: flex;
+//   align-items: center;
+//   gap: $spacing-md;
+//   justify-content: center;
+//   margin-bottom: $spacing-xl;
+
+//   .page-info {
+//     color: $color-white;
+//     font-size: $font-size-sm;
+//     opacity: .9;
+//   }
+
+//   button[disabled] {
+//     opacity: .6;
+//     cursor: not-allowed;
+//   }
+// }

@@ -5,6 +5,7 @@
   "description": "Afec starter kit",
   "main": "js/theme.js",
   "scripts": {
+    "dev": "vite",
     "build": "cross-env NODE_ENV=production webpack --progress",
     "watch": "webpack --progress --watch",
     "scss-lint": "stylelint \"**/*.scss\" --formatter verbose",

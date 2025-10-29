@@ -2,11 +2,22 @@ import db from "../config/db.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-
 const JWT_SECRET = process.env.JWT_SECRET; // stored in .env file
 
 export const login = async (req, res) => {
   try {
+    const requiredEnvVars = ["JWT_SECRET"];
+
+    requiredEnvVars.forEach((envVar) => {
+      if (!process.env[envVar]) {
+        console.error(`Environment variable ${envVar} is not defined.`);
+        if (process.env.NODE_ENV !== "test") {
+          console.error("The application cannot start without the required environment variables.");
+          process.exit(1);
+        }
+      }
+    });
+
     const { email, password } = req.body;
 
     // Check if all fields are provided
@@ -92,4 +103,3 @@ export const signup = async (req, res) => {
     res.status(500).json({ message: "Something went wrong." });
   }
 };
-

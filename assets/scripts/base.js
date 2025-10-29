@@ -64,7 +64,13 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   // Cria o modal de login dinamicamente
-  new LoginModal();
+    const loginModal = new LoginModal();
+
+    const shouldShowLogin = sessionStorage.getItem("showLoginAfterSignup");
+    if (shouldShowLogin === "true") {
+      sessionStorage.removeItem("showLoginAfterSignup");
+      loginModal.openModal();
+    }
 });
 
 // ====== Config da API (funciona se abrires pelo Live Server ou ficheiro) ======
@@ -74,7 +80,28 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
 // ====== lógica da página MOVIES ======
-const API_BASE = `http://localhost:${location.port || 3000}`;
+const resolveApiOrigin = () => {
+  if (typeof window !== "undefined") {
+    const configuredOrigin =
+      window.__API_ORIGIN ||
+      window.API_ORIGIN ||
+      window.API_BASE_URL ||
+      document?.querySelector?.('meta[name="api-origin"]')?.content;
+
+    if (configuredOrigin) {
+      return configuredOrigin;
+    }
+  }
+
+  if (typeof import.meta !== "undefined" && import.meta?.env?.VITE_API_ORIGIN) {
+    return import.meta.env.VITE_API_ORIGIN;
+  }
+
+  return "http://localhost:3000";
+};
+
+const API_BASE = resolveApiOrigin().replace(/\/$/, "");
+
 
 async function loadPopularMovies() {
   const r = await fetch(`${API_BASE}/api/movies/popular`);

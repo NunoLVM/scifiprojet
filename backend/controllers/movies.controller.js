@@ -42,3 +42,24 @@ export async function searchMovies(req, res) {
     res.status(err.response?.status || 502).json({ error: "TMDB upstream error" });
   }
 }
+
+export async function discoverMovies(req, res) {
+  try {
+    const page = Math.max(1, Number(req.query.page || 1));
+    const { data } = await TMDB.get("/discover/movie", {
+      params: withKey({
+        with_genres: 878, // Sci-Fi
+        sort_by: "popularity.desc",
+        include_adult: false,
+        language: "en-US",
+        page,
+      }),
+    });
+    // devolvemos meta + resultados (útil para paginação no front)
+    res.json({ page: data.page, total_pages: data.total_pages, results: data.results });
+  } catch (err) {
+    console.error("TMDB error:", err.response?.status, err.response?.data || err.message);
+    res.status(err.response?.status || 502).json({ error: "TMDB upstream error" });
+  }
+}
+

@@ -1,5 +1,3 @@
-console.log("LoginModal atualizado");
-
 export class LoginModal {
   constructor() {
     this.renderModal();
@@ -33,34 +31,37 @@ export class LoginModal {
       </div>
     `;
     document.body.appendChild(modalContainer);
+    this.modalElement = modalContainer;
   }
 
   attachEvents() {
-    const loginModal = document.getElementById("login-popup");
-    const closeBtn = loginModal.querySelector(".close-btn");
-    const form = loginModal.querySelector("form");
+    const loginModal = this.modalElement;
+    if (!loginModal) return;
 
     // Botão que abre o modal (deve ter id="loginBtn" no HTML)
+    this.closeBtn = loginModal.querySelector(".close-btn");
+    this.form = loginModal.querySelector("form");
+    this.popupContent = loginModal.querySelector(".popup-content");
+
     const loginBtn = document.getElementById("loginBtn");
-    if (!loginBtn) return console.error("loginBtn not found");
+    if (loginBtn) {
+      loginBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        this.openModal();
+      });
+    }
 
-    loginBtn.addEventListener("click", (e) => {
+    if (this.closeBtn) {
+      this.closeBtn.addEventListener("click", () => {
+        this.closeModal();
+      });
+    }
+
+    this.form?.addEventListener("submit", async (e) => {
       e.preventDefault();
-      loginModal.style.display = "flex";
-      document.body.style.overflow = "hidden";
-      loginModal.querySelector(".popup-content").style.animation = "fadeInUp 0.5s ease-out forwards";
-    });
 
-    closeBtn.addEventListener("click", () => {
-      loginModal.style.display = "none";
-      document.body.style.overflow = "";
-    });
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const username = form["username"].value.trim();
-      const password = form["password"].value;
+      const username = this.form["username"].value.trim();
+      const password = this.form["password"].value;
 
       try {
         const res = await fetch("http://localhost:3000/api/login", {
@@ -90,8 +91,7 @@ export class LoginModal {
           })
         );
 
-        loginModal.style.display = "none";
-        document.body.style.overflow = "";
+        this.closeModal();
         alert("Login feito com sucesso!");
         location.reload(); // ou redireciona para dashboard
       } catch (err) {
@@ -99,5 +99,20 @@ export class LoginModal {
         alert(err.message || "Erro de rede ou servidor.");
       }
     });
+  }
+
+  openModal() {
+    if (!this.modalElement) return;
+    this.modalElement.style.display = "flex";
+    document.body.style.overflow = "hidden";
+    if (this.popupContent) {
+      this.popupContent.style.animation = "fadeInUp 0.5s ease-out forwards";
+    }
+  }
+
+  closeModal() {
+    if (!this.modalElement) return;
+    this.modalElement.style.display = "none";
+    document.body.style.overflow = "";
   }
 }
